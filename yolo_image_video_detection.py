@@ -277,16 +277,6 @@
 
 
 # Patch for Python 3.13 removal of imghdr
-import patch_imghdr  # MUST be first
-import streamlit as st
-
-st.write("Streamlit patched for Python 3.13")
-
-
-# Now you can import streamlit safely
-import streamlit as st
-
-st.write("Hello Streamlit on Python 3.13!")
 
 """
 FastAPI YOLOv8 Moderation API with JSON response and video frame detection support
