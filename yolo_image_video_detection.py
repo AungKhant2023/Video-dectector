@@ -276,6 +276,7 @@
 #     uvicorn.run("yolo_image_video_detection:app", host="0.0.0.0", port=8000, reload=False)
 
 
+# Patch for Python 3.13 removal of imghdr
 import sys
 import types
 
@@ -284,7 +285,11 @@ if "imghdr" not in sys.modules:
     fake_imghdr.what = lambda *args, **kwargs: None
     sys.modules["imghdr"] = fake_imghdr
 
-    
+# Now you can import streamlit safely
+import streamlit as st
+
+st.write("Hello Streamlit on Python 3.13!")
+
 """
 FastAPI YOLOv8 Moderation API with JSON response and video frame detection support
 """
