@@ -277,13 +277,11 @@
 
 
 # Patch for Python 3.13 removal of imghdr
-import sys
-import types
+import patch_imghdr  # MUST be first
+import streamlit as st
 
-if "imghdr" not in sys.modules:
-    fake_imghdr = types.ModuleType("imghdr")
-    fake_imghdr.what = lambda *args, **kwargs: None
-    sys.modules["imghdr"] = fake_imghdr
+st.write("Streamlit patched for Python 3.13")
+
 
 # Now you can import streamlit safely
 import streamlit as st
