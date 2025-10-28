@@ -274,6 +274,17 @@
 # if __name__ == "__main__":
 #     import uvicorn
 #     uvicorn.run("yolo_image_video_detection:app", host="0.0.0.0", port=8000, reload=False)
+
+
+import sys
+import types
+
+if "imghdr" not in sys.modules:
+    fake_imghdr = types.ModuleType("imghdr")
+    fake_imghdr.what = lambda *args, **kwargs: None
+    sys.modules["imghdr"] = fake_imghdr
+
+    
 """
 FastAPI YOLOv8 Moderation API with JSON response and video frame detection support
 """
